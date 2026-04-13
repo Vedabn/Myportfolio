@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUTOMATED RAILWAY TRACK CRACK DETECTION SYSTEM  USING  IOT</title>
+    <link rel="stylesheet" href="styletrain.css">
+</head>
+<body>
+    <h1>AUTOMATED RAILWAY TRACK CRACK DETECTION SYSTEM  USING  IOT</h1>
+    <img  height="150px" width="300px" src="train.jpg" alt="AUTOMATED RAILWAY TRACK CRACK DETECTION SYSTEM  USING  IOT" height="150px" width="300px"class="center-img">
+    <P>The Automated Railway Track Crack Detection System Using IoT</P>
+    <p> is designed to automatically detect cracks or faults in railway 
+     tracks using sensors and send real-time alerts through the Internet of Things (IoT) to prevent accidents.</p>
+    <p>This system ensures train safety, reduces human error, and saves maintenance time by continuously monitoring
+    the condition of the tracks.</P>
+        <p>Sensors Used:</p>
+<p>✅ Ultrasonic Sensor
+Detects gaps/cracks by measuring distance variations</p>
+<p>✅ Vibration Sensor
+Detects abnormal vibrations caused by cracks</p>
+<p>✅ IR Sensor
+Detects discontinuity in track surface</p>
+<p>✅ GPS Module
+Sends exact crack location</p>
+<p>Working Principle:
+<p>Sensors continuously scan railway track
+Data sent to microcontroller</p>
+<p>System checks thresholds:
+Distance variation → crack
+Abnormal vibration → structural issue</p>
+<p>If detected:
+Send alert (SMS / Cloud dashboard)
+Include GPS location</p>
+<p>🧾 Sample Arduino Code (Basic):</p>
+<p>#define trigPin 9</p>
+<p>#define echoPin 10</p>
+
+<p>>long duration;</p>
+<p>int distance;</p>
+
+<p>void setup() {</p>
+  <p>Serial.begin(9600);</p>
+  <p>pinMode(trigPin, OUTPUT);</p>
+  <p>pinMode(echoPin, INPUT);</p>
+<p>}</p>
+
+<p>void loop() {</p>
+  <p>digitalWrite(trigPin, LOW);</p>
+  <p>delayMicroseconds(2);</p>
+  
+  <p>digitalWrite(trigPin, HIGH);</p>
+  <p>delayMicroseconds(10);</p>
+  <p>digitalWrite(trigPin, LOW);</p>
+
+  <p>duration = pulseIn(echoPin, HIGH);</p>
+  <p>distance = duration * 0.034 / 2;</p>
+
+  <p>Serial.print("Distance: ");</p>
+  <p>Serial.println(distance);</p>
+
+  <p>if(distance > 15) {</p>
+    <p>Serial.println("Crack Detected!");</p>
+  <p>}</p>
+
+  <p>delay(500);</p>
+<p>}</p>
+</body>
+</html>
